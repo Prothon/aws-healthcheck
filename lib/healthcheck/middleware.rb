@@ -5,7 +5,7 @@ module Healthcheck
     end
 
     def call(env)
-      return [200, {}, []] if env['PATH_INFO'] == '/healthcheck'
+      return [200, {}, []] if env['PATH_INFO'] == '/healthcheck' || env['PATH_INFO'] == '/healthcheck.json'
       @app.call env
     end
   end
